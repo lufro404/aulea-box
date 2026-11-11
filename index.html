@@ -28,7 +28,7 @@
       <a href="#faq">Preguntas</a>
       <a href="#contacto">Contacto</a>
       <button id="modo" title="Modo oscuro">🌙</button>
-      <span class="pedidos">Pedidos: <b id="pedidos">0</b></span>
+      <button class="pedidos" id="abrir-pedidos" aria-label="Ver mis pedidos">Pedidos: <b id="pedidos">0</b></button>
     </div>
   </nav>
 
@@ -350,6 +350,15 @@
       <div>© 2026 Aulea · Proyecto de 2º ASIR<br>Datos aproximados de la UNESCO.</div>
     </div>
   </footer>
+
+  <div class="panel-fondo" id="panel-fondo"></div>
+  <aside class="panel-pedidos" id="panel-pedidos" aria-label="Tus pedidos">
+    <div class="panel-cab"><h3>Tus pedidos</h3><button id="cerrar-pedidos" aria-label="Cerrar">✕</button></div>
+    <div id="lista-pedidos"></div>
+    <p class="total-pedidos" id="total-pedidos"></p>
+    <p class="nota-pedidos">Es una demo: no se hace ningún pago.</p>
+    <button class="boton" id="vaciar-pedidos">Vaciar pedidos</button>
+  </aside>
 
   <button class="subir" id="subir" aria-label="Volver arriba">↑</button>
   <div class="aviso" id="aviso"></div>
