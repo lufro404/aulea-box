@@ -42,6 +42,7 @@ const datos = [
   "Aproximadamente 1 de cada 6 niños y jóvenes en edad escolar no va a la escuela.",
   "De esos, unos 79 millones tienen edad de primaria.",
   "Desde 2017 el número de niños sin escuela sube cada año, aunque el porcentaje se mantiene en torno al 17 %.",
+  "Entre 2000 y 2015 el número bajó un 33 %, pero desde 2015 ha subido un 3 %.",
   "Hay más chicos fuera de la escuela (140 millones) que chicas (133 millones)."
 ];
 let posicion = 0;
