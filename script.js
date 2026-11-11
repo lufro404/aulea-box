@@ -196,21 +196,98 @@ function calcular() {
 barra.addEventListener("input", calcular);
 calcular();
 
-// ===== 9. Botones "Lo quiero" =====
-let pedidos = 0;
+// ===== 9. Pedidos: botones "Lo quiero" y panel con la lista =====
+const PRECIOS = { "Aulea Box Mini": 79, "Aulea Box Plus": 149, "Aulea Box Pro": 299 };
+let carrito = {};
+try { carrito = JSON.parse(localStorage.getItem("aulea-pedidos")) || {}; } catch (e) { carrito = {}; }
+
 function mostrarAviso(texto) {
   const aviso = document.getElementById("aviso");
   aviso.textContent = texto;
   aviso.classList.add("ver");
   setTimeout(function () { aviso.classList.remove("ver"); }, 2500);
 }
+function guardarPedidos() {
+  try { localStorage.setItem("aulea-pedidos", JSON.stringify(carrito)); } catch (e) { /* sin guardado */ }
+}
+const panelPedidos = document.getElementById("panel-pedidos");
+const panelFondo = document.getElementById("panel-fondo");
+const listaPedidos = document.getElementById("lista-pedidos");
+function precioTexto(n) { return n.toString().replace(".", ",") + " €"; }
+
+function dibujarPedidos() {
+  listaPedidos.innerHTML = "";
+  let unidades = 0, total = 0;
+  const nombres = Object.keys(carrito);
+  nombres.forEach(function (nombre) {
+    const c = carrito[nombre];
+    unidades += c.cantidad;
+    total += c.cantidad * c.precio;
+    const fila = document.createElement("div");
+    fila.className = "fila-pedido";
+    const info = document.createElement("div");
+    const t = document.createElement("b");
+    t.textContent = nombre;
+    const sub = document.createElement("small");
+    sub.textContent = c.cantidad + " × " + precioTexto(c.precio) + " = " + precioTexto(c.cantidad * c.precio);
+    info.appendChild(t);
+    info.appendChild(sub);
+    const menos = document.createElement("button");
+    menos.textContent = "−";
+    menos.setAttribute("aria-label", "Quitar uno de " + nombre);
+    menos.addEventListener("click", function () { cambiarCantidad(nombre, -1); });
+    const mas = document.createElement("button");
+    mas.textContent = "+";
+    mas.setAttribute("aria-label", "Añadir uno de " + nombre);
+    mas.addEventListener("click", function () { cambiarCantidad(nombre, 1); });
+    const mando = document.createElement("div");
+    mando.className = "mando";
+    mando.appendChild(menos);
+    mando.appendChild(mas);
+    fila.appendChild(info);
+    fila.appendChild(mando);
+    listaPedidos.appendChild(fila);
+  });
+  if (nombres.length === 0) {
+    const vacio = document.createElement("p");
+    vacio.className = "vacio";
+    vacio.textContent = "Todavía no has pedido nada.";
+    listaPedidos.appendChild(vacio);
+  }
+  document.getElementById("pedidos").textContent = unidades;
+  document.getElementById("total-pedidos").textContent = "Total: " + precioTexto(total) + " (" + unidades + (unidades === 1 ? " caja" : " cajas") + ")";
+  document.getElementById("vaciar-pedidos").style.display = nombres.length ? "inline-block" : "none";
+}
+function cambiarCantidad(nombre, delta) {
+  if (!carrito[nombre]) { return; }
+  carrito[nombre].cantidad += delta;
+  if (carrito[nombre].cantidad <= 0) { delete carrito[nombre]; }
+  guardarPedidos();
+  dibujarPedidos();
+}
+function abrirPanel() { panelPedidos.classList.add("abierto"); panelFondo.classList.add("ver"); }
+function cerrarPanel() { panelPedidos.classList.remove("abierto"); panelFondo.classList.remove("ver"); }
+
 document.querySelectorAll(".pedir").forEach(function (b) {
   b.addEventListener("click", function () {
-    pedidos++;
-    document.getElementById("pedidos").textContent = pedidos;
-    mostrarAviso("Has añadido " + b.dataset.nombre + " (es una demo)");
+    const nombre = b.dataset.nombre;
+    if (!carrito[nombre]) { carrito[nombre] = { precio: PRECIOS[nombre], cantidad: 0 }; }
+    carrito[nombre].cantidad++;
+    guardarPedidos();
+    dibujarPedidos();
+    mostrarAviso("Has añadido " + nombre + " (es una demo)");
   });
 });
+document.getElementById("abrir-pedidos").addEventListener("click", abrirPanel);
+document.getElementById("cerrar-pedidos").addEventListener("click", cerrarPanel);
+panelFondo.addEventListener("click", cerrarPanel);
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") { cerrarPanel(); } });
+document.getElementById("vaciar-pedidos").addEventListener("click", function () {
+  carrito = {};
+  guardarPedidos();
+  dibujarPedidos();
+});
+dibujarPedidos();
 
 // ===== 10. Formulario de contacto (comprueba los campos) =====
 document.getElementById("formulario").addEventListener("submit", function (e) {
