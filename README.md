@@ -1,3 +1,4 @@
+
 # Aulea Box – Tecnología para mejorar la educación
 
 **Proyecto individual – ODS 4: Educación de calidad**
@@ -6,7 +7,7 @@
 
 Aulea Box es un proyecto tecnológico que busca mejorar el acceso a la educación mediante un dispositivo pensado para utilizarse en las aulas.
 
-La idea es facilitar el aprendizaje utilizando la tecnología y ayudar a los centros educativos que tienen menos recursos.
+La idea es facilitar el aprendizaje utilizando la tecnología y ayudar a los centros educativos que tienen dificultades de conexión a Internet o menos recursos.
 
 ## 2. Objetivo de Desarrollo Sostenible
 
@@ -18,7 +19,7 @@ Nuestro proyecto intenta ayudar a reducir estas diferencias mediante la tecnolog
 
 ## 3. Nuestro producto: Aulea Box
 
-Aulea Box es un dispositivo diseñado para facilitar el aprendizaje en clase y ofrecer recursos educativos de forma sencilla.
+Aulea Box es un dispositivo basado en una Raspberry Pi que crea su propia red Wi-Fi local. De esta forma, los alumnos pueden acceder a clases, ejercicios y vídeos desde sus dispositivos sin necesidad de conexión a Internet.
 
 Disponemos de tres versiones:
 
@@ -39,10 +40,13 @@ Con Pandas hemos trabajado con los datos para obtener información como:
 - La ordenación de los datos de menor a mayor.
 - Los cambios en el número de personas sin escolarizar.
 - La evolución del problema a lo largo del tiempo.
+- La distribución regional de los jóvenes sin escolarizar en edad de secundaria alta.
 
 También hemos creado gráficos con Matplotlib para representar los resultados de forma visual.
 
-Los datos muestran la evolución desde el año 2000 hasta 2024. Las cifras de 2000 y 2015 son aproximadas, ya que se han calculado utilizando porcentajes publicados por la UNESCO.
+Los datos muestran la evolución desde el año 2000 hasta 2024. Las cifras históricas son aproximadas y están redondeadas. La cifra de 2000 se estima sumando los 127 millones de descenso indicados por la UNESCO a los 264 millones de 2015.
+
+El porcentaje regional del 74 % corresponde únicamente a los jóvenes sin escolarizar en edad de secundaria alta de África subsahariana y Asia central y meridional. No representa el porcentaje del total de 273 millones.
 
 ## 5. Tecnologías utilizadas
 
@@ -69,6 +73,7 @@ Aulea-Box/
 ├── datos_ods4.csv
 ├── datos_evolucion.csv
 │
+├── resultados.txt
 ├── grafica_ods4.jpg
 ├── grafica_evolucion_ods4.jpg
 │
@@ -86,10 +91,25 @@ La web incluye:
 - Dibujos e ilustraciones creados en SVG.
 - Un aula interactiva con elementos que se pueden pulsar.
 - Un catálogo con los tres modelos del producto.
+- Una calculadora para recomendar un modelo según el número de alumnos.
 - Un apartado con los datos y sus gráficos.
 - Información sobre la empresa y sus productos.
+- Un formulario de contacto de demostración.
 
-## 8. Conclusión
+La página está publicada mediante GitHub Pages:
+
+https://lufro404.github.io/aulea-box/
+
+## 8. Fuentes de información
+
+Los datos utilizados en el proyecto proceden de la UNESCO:
+
+- [UNESCO – Out-of-school rate](https://www.unesco.org/en/education/view/outofschool)
+- [UNESCO – Global Education Monitoring Report](https://www.unesco.org/gem-report/)
+
+Las cifras pueden estar redondeadas y se utilizan con fines educativos y de análisis.
+
+## 9. Conclusión
 
 Con este proyecto queremos demostrar que la tecnología puede ayudar a mejorar la educación y facilitar que más personas tengan acceso a ella.
 
