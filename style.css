@@ -220,3 +220,5 @@ footer { background: var(--azul-oscuro); color: #dcecf8; padding: 34px 0; font-s
 .vacio { color: var(--gris); }
 .total-pedidos { font-size: 1.3rem; font-weight: 700; margin: 18px 0 4px; }
 .nota-pedidos { color: var(--gris); font-size: 0.85rem; margin: 0 0 12px; }
+
+.nota-datos { color: var(--gris); font-size: 0.85rem; margin: 12px 0 0; }
