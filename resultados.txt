@@ -25,4 +25,35 @@ Secundaria alta        47.6
 Niveles por encima de la media: ['Secundaria alta']
 Chicos menos chicas: 7 millones
 
-Gráfica guardada: grafica_ods4.png
+Gráfica guardada: grafica_ods4.jpg
+
+
+EVOLUCIÓN (calculada a partir de los % de la UNESCO)
+ anio  millones
+ 2000       396
+ 2015       265
+ 2024       273
+
+Cambio porcentual entre fechas
+ anio  cambio_pct
+ 2000         NaN
+ 2015       -33.1
+ 2024         3.0
+
+Media de la serie: 311.3 millones
+Máximo: 396 millones en 2000
+Mínimo: 265 millones en 2015
+
+ORDENADO DE MENOR A MAYOR
+ anio  millones
+ 2015       265
+ 2024       273
+ 2000       396
+
+Desde 2015 (filtro): [265, 273]
+Diferencia 2000-2024: 123 millones menos que en 2000
+
+África subsahariana + Asia central y meridional: ~ 75 % = 205 millones
+Resto del mundo: ~ 25 % = 68 millones
+
+Gráfica guardada: grafica_evolucion_ods4.jpg
