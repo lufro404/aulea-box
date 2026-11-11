@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aulea Box - Clases sin internet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='16' fill='%23f2b01e'/%3E%3Cpath d='M8 11c3-1 6-1 9 1v12c-3-2-6-2-9-1zM26 11c-3-1-6-1-9 1v12c3-2 6-2 9-1z' fill='%232573a8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progreso" id="progreso"></div>
+
+  <!-- MENÚ -->
+  <nav class="menu">
+    <a href="#inicio" class="logo">
+      <svg width="34" height="34" viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" fill="#f2b01e"/><path d="M8 11c3-1 6-1 9 1v12c-3-2-6-2-9-1zM26 11c-3-1-6-1-9 1v12c3-2 6-2 9-1z" fill="#2573a8"/></svg>
+      Aulea
+    </a>
+    <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú">☰</button>
+    <div class="enlaces" id="enlaces">
+      <a href="#ods">ODS 4</a>
+      <a href="#datos">Datos</a>
+      <a href="#demo">Pruébalo</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#contacto">Contacto</a>
+      <button id="modo" title="Modo oscuro">🌙</button>
+      <span class="pedidos">Pedidos: <b id="pedidos">0</b></span>
+    </div>
+  </nav>
+
+  <!-- CABECERA -->
+  <header class="hero" id="inicio">
+    <div class="contenedor hero-grid">
+      <div>
+        <span class="chip">ODS 4 · Educación de calidad</span>
+        <p class="cifra"><span id="numero">0</span><small>millones de niños y jóvenes sin escuela</small></p>
+        <h1>Clases en cualquier aula, <span class="resalta">sin internet.</span></h1>
+        <p class="sub">Aulea Box es una caja con una Raspberry Pi que crea su propio Wi-Fi y lleva clases, ejercicios y vídeos a los alumnos.</p>
+        <a class="boton" href="#demo">Pruébalo ahora</a>
+        <a class="boton claro" href="#catalogo">Ver catálogo</a>
+      </div>
+      <!-- Dibujo de la caja -->
+      <svg class="dibujo" viewBox="0 0 400 360" role="img" aria-label="Caja Aulea Box con Wi-Fi y dos móviles">
+        <g fill="none" stroke="#f2b01e" stroke-width="8" stroke-linecap="round">
+          <path class="onda o1" d="M150 110 Q200 70 250 110"/>
+          <path class="onda o2" d="M125 80 Q200 20 275 80"/>
+          <path class="onda o3" d="M100 50 Q200 -30 300 50"/>
+        </g>
+        <rect x="120" y="140" width="160" height="90" rx="16" fill="#ffffff"/>
+        <rect x="136" y="156" width="60" height="10" rx="5" fill="#2f8fd8"/>
+        <circle cx="240" cy="161" r="6" fill="#f2b01e"/><circle cx="260" cy="161" r="6" fill="#1e8a5a"/>
+        <rect x="136" y="186" width="128" height="30" rx="8" fill="#e1f0fa"/>
+        <text x="200" y="207" text-anchor="middle" font-size="16" font-weight="700" fill="#1f5f8f">AULEA BOX</text>
+        <rect x="40" y="250" width="70" height="105" rx="12" fill="#10202f"/><rect x="47" y="260" width="56" height="85" rx="6" fill="#ffffff"/>
+        <rect x="55" y="270" width="40" height="6" rx="3" fill="#2f8fd8"/><rect x="55" y="284" width="40" height="6" rx="3" fill="#cfe0ee"/><rect x="55" y="298" width="28" height="6" rx="3" fill="#cfe0ee"/>
+        <rect x="290" y="250" width="70" height="105" rx="12" fill="#10202f"/><rect x="297" y="260" width="56" height="85" rx="6" fill="#ffffff"/>
+        <rect x="305" y="270" width="40" height="6" rx="3" fill="#f2b01e"/><rect x="305" y="284" width="40" height="6" rx="3" fill="#cfe0ee"/><rect x="305" y="298" width="28" height="6" rx="3" fill="#cfe0ee"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ODS 4 -->
+  <section id="ods" class="blanco">
+    <div class="contenedor dos-columnas aparece">
+      <div>
+        <p class="etiqueta">El problema</p>
+        <h2>ODS 4: Educación de calidad</h2>
+        <p>Este objetivo quiere que todos los niños y jóvenes tengan una educación buena y para todos.</p>
+        <p>En muchos sitios no hay escuela cerca ni buena conexión a internet para estudiar online.</p>
+      </div>
+      <div class="caja">
+        <p class="etiqueta">¿Sabías que...?</p>
+        <p class="dato" id="dato"></p>
+        <button class="btn-mini" id="otro-dato">Otro dato</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VÍDEO -->
+  <section id="video" class="cine">
+    <div class="contenedor aparece">
+      <p class="etiqueta">Mira el vídeo</p>
+      <h2>Entiende el ODS 4</h2>
+      <div class="marco-video" id="marco-video"></div>
+      <p><a class="boton claro" id="enlace-video" href="https://www.youtube.com/results?search_query=ODS+4+educacion+de+calidad+UNESCO" target="_blank" rel="noopener">Ver en YouTube</a></p>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section>
+    <div class="contenedor aparece">
+      <p class="etiqueta">Cómo funciona</p>
+      <h2>Tres pasos y ya hay clase</h2>
+      <div class="pasos">
+        <div class="paso"><span class="num">1</span><h3>Enciende la caja</h3><p>La Raspberry Pi arranca y crea su propio Wi-Fi. No necesita internet.</p></div>
+        <div class="paso"><span class="num">2</span><h3>Conecta el móvil</h3><p>Los alumnos se conectan al Wi-Fi "Aulea-Box" con su móvil o tablet.</p></div>
+        <div class="paso"><span class="num">3</span><h3>Abre la clase</h3><p>El navegador muestra la web con clases, ejercicios y vídeos hecha con HTML y CSS.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AULA INTERACTIVA -->
+  <section id="aula" class="cielo">
+    <div class="contenedor aparece">
+      <p class="etiqueta">Así es el aula</p>
+      <h2>Una clase con Aulea Box</h2>
+      <p>Pulsa los puntos amarillos para ver qué hace cada cosa.</p>
+      <div class="aula-marco">
+        <svg class="aula-svg" viewBox="0 0 800 420" role="img" aria-label="Dibujo de un aula con una profesora, alumnos con móviles y una Aulea Box en la mesa">
+          <rect width="800" height="420" fill="#e1f0fa"/>
+          <rect y="330" width="800" height="90" fill="#c9a77c"/>
+          <rect y="320" width="800" height="14" fill="#a98657"/>
+          <!-- ventana -->
+          <rect x="620" y="40" width="130" height="110" rx="8" fill="#9fd3f5" stroke="#2573a8" stroke-width="6"/>
+          <path d="M685 40v110M620 95h130" stroke="#2573a8" stroke-width="5"/>
+          <circle cx="725" cy="70" r="14" fill="#f2b01e"/>
+          <!-- pizarra -->
+          <rect x="60" y="40" width="360" height="170" rx="10" fill="#1e6b4c" stroke="#8a5a2b" stroke-width="8"/>
+          <text x="90" y="95" font-size="26" font-weight="700" fill="#ffffff" font-family="Poppins, Arial">ODS 4</text>
+          <text x="90" y="135" font-size="20" fill="#d6f0e2" font-family="Poppins, Arial">2 + 3 = 5</text>
+          <path d="M90 160q30-18 60 0t60 0t60 0" fill="none" stroke="#f2b01e" stroke-width="4" stroke-linecap="round"/>
+          <!-- profesora -->
+          <rect x="460" y="190" width="46" height="130" rx="18" fill="#2573a8"/>
+          <circle cx="483" cy="160" r="30" fill="#f1c9a0"/>
+          <path d="M453 160a30 30 0 0 1 60 0c-8-14-52-14-60 0z" fill="#5a3a22"/>
+          <circle cx="474" cy="162" r="3" fill="#10202f"/><circle cx="492" cy="162" r="3" fill="#10202f"/>
+          <path d="M475 174q8 7 16 0" fill="none" stroke="#10202f" stroke-width="3" stroke-linecap="round"/>
+          <path d="M506 215l50-30" stroke="#f1c9a0" stroke-width="12" stroke-linecap="round"/>
+          <!-- mesa con la caja -->
+          <rect x="520" y="270" width="230" height="16" rx="6" fill="#8a5a2b"/>
+          <rect x="535" y="286" width="12" height="44" fill="#8a5a2b"/><rect x="723" y="286" width="12" height="44" fill="#8a5a2b"/>
+          <rect x="580" y="236" width="110" height="34" rx="8" fill="#ffffff" stroke="#2573a8" stroke-width="3"/>
+          <circle cx="600" cy="253" r="4" fill="#f2b01e"/><circle cx="614" cy="253" r="4" fill="#1e8a5a"/>
+          <text x="660" y="258" text-anchor="middle" font-size="12" font-weight="700" fill="#1f5f8f" font-family="Poppins, Arial">AULEA</text>
+          <g fill="none" stroke="#f2b01e" stroke-width="5" stroke-linecap="round">
+            <path class="onda o1" d="M620 218q25-22 50 0"/>
+            <path class="onda o2" d="M600 198q45-40 90 0"/>
+            <path class="onda o3" d="M580 178q65-58 130 0"/>
+          </g>
+          <!-- alumnos -->
+          <g>
+            <rect x="80" y="280" width="140" height="14" rx="5" fill="#8a5a2b"/>
+            <rect x="92" y="294" width="10" height="36" fill="#8a5a2b"/><rect x="198" y="294" width="10" height="36" fill="#8a5a2b"/>
+            <circle cx="120" cy="240" r="24" fill="#e0ac7e"/><path d="M96 238a24 24 0 0 1 48 0c-6-12-42-12-48 0z" fill="#10202f"/>
+            <rect x="98" y="262" width="44" height="22" rx="10" fill="#f2b01e"/>
+            <rect x="150" y="250" width="26" height="40" rx="5" fill="#10202f" transform="rotate(-12 163 270)"/>
+            <rect x="153" y="254" width="20" height="30" rx="3" fill="#ffffff" transform="rotate(-12 163 270)"/>
+          </g>
+          <g>
+            <rect x="260" y="280" width="140" height="14" rx="5" fill="#8a5a2b"/>
+            <rect x="272" y="294" width="10" height="36" fill="#8a5a2b"/><rect x="378" y="294" width="10" height="36" fill="#8a5a2b"/>
+            <circle cx="300" cy="240" r="24" fill="#f1c9a0"/><path d="M276 242c0-22 48-22 48 0c-10-8-38-8-48 0z" fill="#8a4b22"/>
+            <rect x="278" y="262" width="44" height="22" rx="10" fill="#1e8a5a"/>
+            <rect x="330" y="250" width="26" height="40" rx="5" fill="#10202f" transform="rotate(-12 343 270)"/>
+            <rect x="333" y="254" width="20" height="30" rx="3" fill="#ffffff" transform="rotate(-12 343 270)"/>
+          </g>
+          <!-- puntos pulsables -->
+          <g class="puntos">
+            <g class="punto" data-texto="La caja Aulea Box: una Raspberry Pi que crea su propio Wi-Fi. No necesita internet." tabindex="0" role="button" aria-label="Ver qué es la caja"><circle cx="635" cy="236" r="14"/><text x="635" y="241" text-anchor="middle">1</text></g>
+            <g class="punto" data-texto="El Wi-Fi de la clase: llega a toda el aula, sin cables y sin pagar datos." tabindex="0" role="button" aria-label="Ver qué es el Wi-Fi"><circle cx="660" cy="150" r="14"/><text x="660" y="155" text-anchor="middle">2</text></g>
+            <g class="punto" data-texto="Los móviles de los alumnos: se conectan a la caja y abren las clases en el navegador." tabindex="0" role="button" aria-label="Ver los móviles"><circle cx="170" cy="240" r="14"/><text x="170" y="245" text-anchor="middle">3</text></g>
+            <g class="punto" data-texto="La profesora: sigue dando la clase en la pizarra y usa la caja para los ejercicios y los vídeos." tabindex="0" role="button" aria-label="Ver a la profesora"><circle cx="483" cy="115" r="14"/><text x="483" y="120" text-anchor="middle">4</text></g>
+          </g>
+        </svg>
+        <p class="aula-texto" id="aula-texto">Pulsa un punto para empezar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATOS -->
+  <section id="datos" class="blanco">
+    <div class="contenedor aparece">
+      <p class="etiqueta">Los datos</p>
+      <h2>273 millones sin escuela, casi la mitad en secundaria alta</h2>
+      <p>Niños y jóvenes sin escolarizar en 2024, por nivel educativo, en millones (datos de la UNESCO). <b>Pulsa una barra.</b></p>
+      <div class="grafica" id="grafica">
+        <button class="barra" data-valor="64" data-texto="Secundaria baja: 64 millones, el 23,4 % del total. Es el nivel con menos jóvenes fuera de la escuela."><span>64</span><div></div><b>Secundaria baja</b></button>
+        <button class="barra" data-valor="79" data-texto="Primaria: 79 millones, el 28,9 % del total. Son niños en edad de aprender a leer y escribir."><span>79</span><div></div><b>Primaria</b></button>
+        <button class="barra" data-valor="130" data-texto="Secundaria alta: 130 millones, el 47,6 % del total. Es el valor máximo y está muy por encima de la media (91 millones)."><span>130</span><div></div><b>Secundaria alta</b></button>
+      </div>
+      <p class="detalle" id="detalle">Pulsa una barra para ver el detalle de cada nivel.</p>
+
+      <h3 class="subtitulo">Análisis con Pandas</h3>
+      <div class="dos-columnas">
+        <img class="img-pandas" src="grafica_ods4.jpg" alt="Gráfica hecha con Pandas y Matplotlib: niños sin escolarizar en 2024 por nivel, ordenados de menor a mayor">
+        <div>
+          <ul class="resultados">
+            <li><b>Media</b> de los tres niveles: 91 millones.</li>
+            <li><b>Valor máximo:</b> secundaria alta, 130 millones.</li>
+            <li><b>Orden de menos a mayor:</b> secundaria baja (64), primaria (79) y secundaria alta (130).</li>
+            <li><b>Filtro:</b> solo la secundaria alta está por encima de la media.</li>
+            <li><b>Por sexo:</b> 140 millones de chicos y 133 de chicas, 7 millones más de chicos.</li>
+          </ul>
+          <p class="detalle"><b>Cómo ayuda Aulea Box:</b> la mitad de los que no estudian son jóvenes de secundaria alta, y muchos viven lejos de una escuela o sin buena conexión. Una caja con su propio Wi-Fi lleva clases y ejercicios a aulas sin internet, y el modelo Plus sirve a 30 alumnos con una sola caja.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO DEL MÓVIL -->
+  <section id="demo">
+    <div class="contenedor dos-columnas aparece">
+      <div>
+        <p class="etiqueta">Pruébalo</p>
+        <h2>Una clase sin internet</h2>
+        <p>Conéctate al Wi-Fi de la caja con el móvil de la derecha y haz el mini examen.</p>
+        <p><b>Cómo ayuda al ODS 4:</b> lleva clases, ejercicios y vídeos a aulas sin conexión, con una caja barata que sirve a toda una clase.</p>
+      </div>
+      <div class="movil"><div class="pantalla" id="pantalla"></div></div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA -->
+  <section class="blanco">
+    <div class="contenedor dos-columnas aparece">
+      <div>
+        <p class="etiqueta">Elige tu modelo</p>
+        <h2>¿Qué modelo necesita tu clase?</h2>
+        <p>Mueve la barra con el número de alumnos. El modelo recomendado se marca en el catálogo.</p>
+      </div>
+      <div class="caja calculadora">
+        <p class="grande"><span id="alumnos">20</span> alumnos</p>
+        <input type="range" id="barra" min="1" max="100" value="20">
+        <p class="modelo" id="modelo"></p>
+        <p id="coste"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section id="catalogo">
+    <div class="contenedor aparece">
+      <p class="etiqueta">Catálogo</p>
+      <h2>Tres modelos para cada aula</h2>
+      <div class="catalogo">
+        <div class="tarjeta" id="t-mini">
+          <svg class="modelo-dib" viewBox="0 0 200 110" role="img" aria-label="Dibujo de Aulea Box Mini">
+            <path class="onda o1" fill="none" stroke="#f2b01e" stroke-width="5" stroke-linecap="round" d="M85 28q15-14 30 0"/>
+            <path class="onda o2" fill="none" stroke="#f2b01e" stroke-width="5" stroke-linecap="round" d="M70 16q30-26 60 0"/>
+            <rect x="60" y="40" width="80" height="50" rx="10" fill="#2f8fd8"/>
+            <rect x="72" y="52" width="36" height="7" rx="3" fill="#ffffff"/>
+            <circle cx="120" cy="55" r="4" fill="#f2b01e"/><circle cx="130" cy="55" r="4" fill="#1e8a5a"/>
+            <rect x="72" y="68" width="56" height="12" rx="5" fill="#e1f0fa"/>
+          </svg>
+          <h3>Aulea Box Mini</h3><p class="precio">79 €</p>
+          <ul><li>Raspberry Pi con Wi-Fi propio</li><li>Hasta 10 alumnos</li><li>Clases básicas</li></ul>
+          <button class="boton pedir" data-nombre="Aulea Box Mini">Lo quiero</button>
+        </div>
+        <div class="tarjeta" id="t-plus">
+          <svg class="modelo-dib" viewBox="0 0 200 110" role="img" aria-label="Dibujo de Aulea Box Plus con batería">
+            <path class="onda o1" fill="none" stroke="#f2b01e" stroke-width="5" stroke-linecap="round" d="M85 28q15-14 30 0"/>
+            <path class="onda o2" fill="none" stroke="#f2b01e" stroke-width="5" stroke-linecap="round" d="M70 16q30-26 60 0"/>
+            <rect x="40" y="40" width="120" height="52" rx="12" fill="#1f5f8f"/>
+            <rect x="52" y="52" width="36" height="7" rx="3" fill="#ffffff"/>
+            <circle cx="132" cy="55" r="4" fill="#f2b01e"/><circle cx="144" cy="55" r="4" fill="#1e8a5a"/>
+            <rect x="52" y="68" width="40" height="16" rx="5" fill="#e1f0fa"/>
+            <path d="M68 72l10 4-10 4z" fill="#2f8fd8"/>
+            <rect x="104" y="68" width="44" height="16" rx="4" fill="#ffffff"/><rect x="148" y="73" width="4" height="6" rx="1" fill="#ffffff"/>
+            <rect x="107" y="71" width="30" height="10" rx="2" fill="#1e8a5a"/>
+          </svg>
+          <h3>Aulea Box Plus</h3><p class="precio">149 €</p>
+          <ul><li>Todo lo del Mini</li><li>Hasta 30 alumnos</li><li>Vídeos incluidos</li><li>Batería de 8 horas</li></ul>
+          <button class="boton pedir" data-nombre="Aulea Box Plus">Lo quiero</button>
+        </div>
+        <div class="tarjeta" id="t-pro">
+          <svg class="modelo-dib" viewBox="0 0 200 110" role="img" aria-label="Dibujo de Aulea Box Pro con panel para el profesor">
+            <path class="onda o1" fill="none" stroke="#f2b01e" stroke-width="5" stroke-linecap="round" d="M85 22q15-14 30 0"/>
+            <path class="onda o2" fill="none" stroke="#f2b01e" stroke-width="5" stroke-linecap="round" d="M70 10q30-26 60 0"/>
+            <rect x="25" y="32" width="150" height="62" rx="12" fill="#10202f"/>
+            <rect x="37" y="42" width="60" height="42" rx="6" fill="#e1f0fa"/>
+            <rect x="43" y="49" width="30" height="5" rx="2" fill="#2f8fd8"/>
+            <rect x="43" y="59" width="46" height="5" rx="2" fill="#cfe0ee"/>
+            <rect x="43" y="69" width="20" height="9" rx="2" fill="#f2b01e"/>
+            <path d="M135 44l18 6v12c0 10-8 17-18 21-10-4-18-11-18-21V50z" fill="#f2b01e"/>
+            <path d="M127 64l6 6 11-12" fill="none" stroke="#10202f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Aulea Box Pro</h3><p class="precio">299 €</p>
+          <ul><li>Todo lo del Plus</li><li>Hasta 100 alumnos</li><li>Panel para el profesor</li><li>Copia de seguridad y garantía de 3 años</li></ul>
+          <button class="boton pedir" data-nombre="Aulea Box Pro">Lo quiero</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSIÓN -->
+  <section class="banda">
+    <div class="contenedor aparece">
+      <h2>La educación es la base de todo lo demás</h2>
+      <p>Hay unos 273 millones de niños y jóvenes sin escuela y la cifra lleva años sin bajar. Una caja no lo arregla, pero llevar clases a un aula sin internet es un paso.</p>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="equipo">
+    <div class="contenedor aparece">
+      <p class="etiqueta">Quién está detrás</p>
+      <h2>Equipo y tecnología</h2>
+      <div class="dos-columnas">
+        <div class="persona">
+          <div class="avatar">LF</div>
+          <div><h3>Lucas Frontera Alloza</h3><p class="rol">Fundador y desarrollador · 2º ASIR</p><p>Diseño la caja, monto el servidor y programo la web de las clases.</p></div>
+        </div>
+        <div>
+          <p><b>Con qué lo hacemos:</b></p>
+          <div class="chips"><span>Raspberry Pi</span><span>Nginx</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Pandas</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section id="faq" class="blanco">
+    <div class="contenedor aparece">
+      <p class="etiqueta">Preguntas frecuentes</p>
+      <h2>¿Dudas?</h2>
+      <details><summary>¿Necesita internet?</summary><p>No. La caja funciona sin internet. Solo se necesita para actualizar las clases, y también se puede hacer con un pendrive.</p></details>
+      <details><summary>¿Cuántos alumnos pueden conectarse a la vez?</summary><p>El Mini, hasta 10; el Plus, hasta 30; y el Pro, hasta 100.</p></details>
+      <details><summary>¿Qué dispositivos necesitan los alumnos?</summary><p>Cualquier móvil, tablet u ordenador con Wi-Fi y navegador.</p></details>
+      <details><summary>¿Y si no hay electricidad?</summary><p>El modelo Plus lleva batería de 8 horas, y se puede conectar a una batería externa.</p></details>
+      <details><summary>¿Es un producto real?</summary><p>Es un proyecto de clase de 2º ASIR sobre el ODS 4. Los precios y los modelos son una propuesta.</p></details>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="contenedor dos-columnas aparece">
+      <div>
+        <p class="etiqueta">Contacto</p>
+        <h2>Escríbenos</h2>
+        <p>¿Quieres una Aulea Box para tu colegio? Cuéntanos qué necesitas.</p>
+        <p>📧 hola@aulea.example</p>
+      </div>
+      <form class="formulario" id="formulario">
+        <label>Nombre<input type="text" id="f-nombre" placeholder="Tu nombre"></label>
+        <label>Correo<input type="email" id="f-correo" placeholder="tu@correo.com"></label>
+        <label>Mensaje<textarea id="f-mensaje" rows="4" placeholder="¿Cuántos alumnos tiene tu clase?"></textarea></label>
+        <button class="boton" type="submit">Enviar</button>
+        <p class="resultado" id="resultado"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="contenedor pie">
+      <div><b>Aulea</b><br>Clases sin internet para todos.</div>
+      <div>© 2026 Aulea · Proyecto de 2º ASIR<br>Datos aproximados de la UNESCO.</div>
+    </div>
+  </footer>
+
+  <button class="subir" id="subir" aria-label="Volver arriba">↑</button>
+  <div class="aviso" id="aviso"></div>
+  <script src="script.js"></script>
+</body>
+</html>

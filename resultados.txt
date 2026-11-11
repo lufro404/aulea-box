@@ -1,0 +1,28 @@
+TABLA COMPLETA
+ tipo           grupo  millones
+nivel        Primaria        79
+nivel Secundaria baja        64
+nivel Secundaria alta       130
+ sexo          Chicos       140
+ sexo          Chicas       133
+
+Media de los tres niveles: 91.0 millones
+Valor máximo: Secundaria alta con 130 millones
+Total (suma de niveles): 273 millones
+
+ORDENADO DE MENOR A MAYOR
+          grupo  millones
+Secundaria baja        64
+       Primaria        79
+Secundaria alta       130
+
+PORCENTAJE SOBRE EL TOTAL
+          grupo  porcentaje
+       Primaria        28.9
+Secundaria baja        23.4
+Secundaria alta        47.6
+
+Niveles por encima de la media: ['Secundaria alta']
+Chicos menos chicas: 7 millones
+
+Gráfica guardada: grafica_ods4.png
